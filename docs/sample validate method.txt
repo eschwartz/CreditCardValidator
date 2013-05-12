@@ -1,0 +1,51 @@
+$model->propertyConstraints = array(
+	'number' => (CreditCardNumberConstraint $constr, SomeOtherConstr $constr2),
+	...
+);
+
+
+class Validator {
+	public function validate(Model $model) {
+		$errors = array();
+		$constraints = $model->getConstraints();
+
+		foreach($constraints as $attr => $propertyConstraint) {
+			$propertyErrors = $constraint->validate($model->getAttribute($attr));
+
+			if(count($propertyErrors)) {
+				$errors = array_merge($errors, $propertyErrors);
+			}
+		}
+
+		return $this->errors = $errors;
+	}
+}
+
+
+FUNCTIONAL TEST:
+
+$badCard = new CreditCard(array(
+	'number' => "1234-abcd-sd&*(",
+	'expDate' => "2012-04-03"
+));
+$badCard->setPropertyConstraint('number', new CreditCardNumberConstraint());
+
+$validator = new Validator();
+$errors = $validate($card);
+
+$this->assertGreaterThan(0, count($errors));
+$this->assertInstanceOf(CreditCardNumberValidationError, $errors[0])
+
+
+
+
+TODO:
+* Document unit tests
+* Write functional test
+* Install composer PSR-0 auto-loader
+* Install php-unit
+* TDD it
+* Clean up UML for presentationa
+
+BONUS:
+* Generate documentation (PHPDoc)

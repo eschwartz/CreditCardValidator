@@ -1,0 +1,25 @@
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+.buildpath
+.metadata/
+.project
+.settings/
+tmp
+ssl
+log/*
+cache/*
+vendor/*
+!.gitkeep
+
+#phpstorm
+.idea/
+
+# composer
+composer.phar
+
+# phpunit
+phpunit.phar
