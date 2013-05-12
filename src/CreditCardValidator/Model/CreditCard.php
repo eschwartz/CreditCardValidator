@@ -2,9 +2,9 @@
 
 namespace CreditCardValidator\Model;
 
-use CreditCardValidator\Model\Model as BaseModel;
+use CreditCardValidator\Model\AbstractModel;
 
-class CreditCard extends BaseModel {
+class CreditCard extends AbstractModel {
 
   public function setNumber($number) {
     $this->attributes['number'] = $number;

@@ -4,7 +4,7 @@ namespace CreditCardValidator\Model;
 
 use CreditCardValidator\Validator\Constraint\ConstraintInterface;
 
-abstract class Model {
+abstract class AbstractModel {
 
   protected $attributes = array();
 
