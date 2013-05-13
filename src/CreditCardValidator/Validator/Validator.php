@@ -25,11 +25,19 @@ class Validator {
     $this->model = $model;
   }
 
+  public function getModel() {
+    return $this->model;
+  }
+
+  public function getErrors() {
+    return $this->errors;
+  }
+
   /**
    * Runs through all bound constraints
    * on model properties, validates,
    * and returns a single list of validation errors
-   * 
+   *
    * @param AbstractModel $model            The model to validate
    * @return array                          A list of validation errors
    */
