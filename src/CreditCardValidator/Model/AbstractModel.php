@@ -4,6 +4,13 @@ namespace CreditCardValidator\Model;
 
 use CreditCardValidator\Validator\Constraint\ConstraintInterface;
 
+/**
+ * Base model class
+ * Set at abstract, because it shouldn't be directly instantiated
+ *
+ * Class AbstractModel
+ * @package CreditCardValidator\Model
+ */
 abstract class AbstractModel {
 
   protected $attributes = array();

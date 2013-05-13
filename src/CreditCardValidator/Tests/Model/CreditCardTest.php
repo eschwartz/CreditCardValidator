@@ -22,8 +22,9 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
   }
 
   public function testCanGetNormalizedCreditCardNumberAsString() {
-    $this->card->setNumber("1234-5678 90abcd gef hij12.34\\56//7890");
-    $normalized = $this->card->getNumberAsNormalizedString();
+    $number = "1234-5678 90abcd gef hij12.34\\56//7890";
+    $normalized = CreditCard::getNumberAsNormalizedString($number);
+
     $this->assertEquals("12345678901234567890", $normalized);
     $this->assertInternalType("string", $normalized);
   }

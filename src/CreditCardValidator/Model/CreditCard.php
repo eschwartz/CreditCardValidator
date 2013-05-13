@@ -6,6 +6,10 @@ use CreditCardValidator\Model\AbstractModel;
 
 class CreditCard extends AbstractModel {
 
+  protected $attributes = array(
+    'number' => null
+  );
+
   public function setNumber($number) {
     $this->attributes['number'] = $number;
   }
@@ -20,7 +24,7 @@ class CreditCard extends AbstractModel {
    *
    * @return float      Card number
    */
-  public function getNumberAsNormalizedString() {
-    return (string) preg_replace("/[^0-9]/", "", $this->getNumber());
+  public static function getNumberAsNormalizedString($number) {
+    return (string) preg_replace("/[^0-9]/", "", $number);
   }
 }
