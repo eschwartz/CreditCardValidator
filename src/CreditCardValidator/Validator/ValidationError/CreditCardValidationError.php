@@ -4,8 +4,15 @@ namespace CreditCardValidator\Validator\ValidationError;
 
 use CreditCardValidator\Validator\ValidationError\ValidationErrorInterface;
 
+/**
+ * Class CreditCardValidationError
+ * @package CreditCardValidator\Validator\ValidationError
+ */
 class CreditCardValidationError implements ValidationErrorInterface {
 
+  /**
+   * @var string  Type of card (eg. visa, mastercard, amex)
+   */
   private $cardType;
 
   /**
@@ -16,7 +23,7 @@ class CreditCardValidationError implements ValidationErrorInterface {
   }
 
   /**
-   * @param string $cardType    Card Type (eg. visa, mastercard, amex)s
+   * @param string $cardType    Card Type (eg. visa, mastercard, amex)
    */
   public function setCardType($cardType) {
     $this->cardType = $cardType;

@@ -4,6 +4,10 @@ namespace CreditCardValidator\Model;
 
 use CreditCardValidator\Model\AbstractModel;
 
+/**
+ * Class CreditCard
+ * @package CreditCardValidator\Model
+ */
 class CreditCard extends AbstractModel {
 
   protected $attributes = array(

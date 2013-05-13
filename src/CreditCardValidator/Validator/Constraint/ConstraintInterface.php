@@ -4,6 +4,14 @@ namespace CreditCardValidator\Validator\Constraint;
 
 use CreditCardValidator\Model\AbstractModel;
 
+/**
+ * A constraint can be bound to a model property
+ * Validating the constraint shoudl return a list
+ * of ValidationErrors
+ *
+ * Class ConstraintInterface
+ * @package CreditCardValidator\Validator\Constraint
+ */
 interface ConstraintInterface {
   /**
    * Validates the value

@@ -5,6 +5,13 @@ use CreditCardValidator\Model\CreditCard;
 use CreditCardValidator\Validator\Constraint\ConstraintInterface;
 use CreditCardValidator\Validator\ValidationError\CreditCardValidationError;
 
+/**
+ * Validates that a credit card number
+ * matches standard patterns.
+ *
+ * Class CreditCardNumberConstraint
+ * @package CreditCardValidator\Validator\Constraint
+ */
 class CreditCardNumberConstraint implements ConstraintInterface {
 
   /**

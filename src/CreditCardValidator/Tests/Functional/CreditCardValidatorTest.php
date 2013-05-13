@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: edanschwartz
- * Date: 5/12/13
- * Time: 9:07 AM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace CreditCardValidator\Tests\Functional;
 
