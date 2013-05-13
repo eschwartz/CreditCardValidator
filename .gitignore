@@ -23,3 +23,6 @@ composer.phar
 
 # phpunit
 phpunit.phar
+
+# phpdocs
+phpDocumentor.phar

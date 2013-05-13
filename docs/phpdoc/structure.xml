@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="Model/AbstractModel.php" hash="f7d17799f92ca51d7a0496ec0215f618" package="Default">
+    <class final="false" abstract="true" namespace="CreditCardValidator\Model" line="14" package="CreditCardValidator\Model">
+      <extends/>
+      <name>AbstractModel</name>
+      <full_name>\CreditCardValidator\Model\AbstractModel</full_name>
+      <docblock line="7">
+        <description>Base model class
+Set at abstract, because it shouldn't be directly instantiated</description>
+        <long-description>&lt;p&gt;Class AbstractModel&lt;/p&gt;</long-description>
+        <tag line="7" name="package" description="CreditCardValidator\Model"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="16" namespace="CreditCardValidator\Model" package="Default">
+        <name>$attributes</name>
+        <default>array()</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="18" namespace="CreditCardValidator\Model" package="Default">
+        <name>$constraints</name>
+        <default>array()</default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="26" package="CreditCardValidator\Model">
+        <name>getAttribute</name>
+        <full_name>getAttribute</full_name>
+        <docblock line="20">
+          <description>Read-only access to model attributes</description>
+          <long-description></long-description>
+          <tag line="20" name="param" description="" type="\CreditCardValidator\Model\" variable="$attr"/>
+          <tag line="20" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$attr</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="CreditCardValidator\Model" line="38" package="CreditCardValidator\Model">
+        <name>checkPropertyExists</name>
+        <full_name>checkPropertyExists</full_name>
+        <docblock line="31">
+          <description>Checks that the property is an attribute of the model
+Or throws an exception</description>
+          <long-description></long-description>
+          <tag line="31" name="param" description="" type="\CreditCardValidator\Model\" variable="$property"/>
+          <tag line="31" name="throws" description="If property does not exist" type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="38">
+          <name>$property</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="52" package="CreditCardValidator\Model">
+        <name>setPropertyConstraint</name>
+        <full_name>setPropertyConstraint</full_name>
+        <docblock line="44">
+          <description>Set a constraint on a model property
+A property may have multiple constraints</description>
+          <long-description></long-description>
+          <tag line="44" name="param" description="An attribute of the model" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="44" name="param" description="A constraint to apply to the model" type="\CreditCardValidator\Validator\Constraint\ConstraintInterface" variable="$constraint">
+            <type by_reference="false">\CreditCardValidator\Validator\Constraint\ConstraintInterface</type>
+          </tag>
+          <tag line="44" name="throws" description="If property is not an attribute of the model" type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="52">
+          <name>$property</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="52">
+          <name>$constraint</name>
+          <default></default>
+          <type>\CreditCardValidator\Validator\Constraint\ConstraintInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="70" package="CreditCardValidator\Model">
+        <name>getPropertyConstraints</name>
+        <full_name>getPropertyConstraints</full_name>
+        <docblock line="63">
+          <description>Returns an array of constraints bound the specified model property</description>
+          <long-description></long-description>
+          <tag line="63" name="param" description="An attribute of the model" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="63" name="return" description="An array of constraints bound to the model property" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="63" name="throws" description="If property is not an attribute of the model" type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$property</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="79" package="CreditCardValidator\Model">
+        <name>getConstraints</name>
+        <full_name>getConstraints</full_name>
+        <docblock line="76">
+          <description></description>
+          <long-description></long-description>
+          <tag line="76" name="return" description="All property constraints for this model" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Model/AbstractModel.php</error>
+      <error line="16" code="50018">No DocBlock was found for property $attributes</error>
+      <error line="18" code="50018">No DocBlock was found for property $constraints</error>
+      <error line="76" code="50012">No short description for method getConstraints()</error>
+    </parse_markers>
+  </file>
+  <file path="Model/CreditCard.php" hash="becc5699fb1ab763445a67e4332e1f17" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Model" line="11" package="CreditCardValidator\Model">
+      <extends>\CreditCardValidator\Model\AbstractModel</extends>
+      <name>CreditCard</name>
+      <full_name>\CreditCardValidator\Model\CreditCard</full_name>
+      <docblock line="7">
+        <description>Class CreditCard</description>
+        <long-description></long-description>
+        <tag line="7" name="package" description="CreditCardValidator\Model"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="13" namespace="CreditCardValidator\Model" package="Default">
+        <name>$attributes</name>
+        <default>array('number' =&gt; null)</default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="17" package="CreditCardValidator\Model">
+        <name>setNumber</name>
+        <full_name>setNumber</full_name>
+        <argument line="17">
+          <name>$number</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Model" line="21" package="CreditCardValidator\Model">
+        <name>getNumber</name>
+        <full_name>getNumber</full_name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="CreditCardValidator\Model" line="31" package="CreditCardValidator\Model">
+        <name>getNumberAsNormalizedString</name>
+        <full_name>getNumberAsNormalizedString</full_name>
+        <docblock line="25">
+          <description>Strips all non-numeric characters from
+the card number, including spaces and dashes</description>
+          <long-description></long-description>
+          <tag line="25" name="return" description="Card number" type="float">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="31">
+          <name>$number</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Model/CreditCard.php</error>
+      <error line="13" code="50018">No DocBlock was found for property $attributes</error>
+      <error line="17" code="50010">No DocBlock was found for method setNumber()</error>
+      <error line="21" code="50010">No DocBlock was found for method getNumber()</error>
+      <error line="25" code="50015">Argument $number is missing from the Docblock of getNumberAsNormalizedString()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/Constraint/CreditCardNumberConstraintTest.php" hash="05efc57f01b0820fc851ddc41d20ee89" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\Constraint" line="7" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>CreditCardNumberConstraintTest</name>
+      <full_name>\CreditCardValidator\Tests\Constraint\CreditCardNumberConstraintTest</full_name>
+      <property final="false" static="false" visibility="private" line="12" namespace="CreditCardValidator\Tests\Constraint" package="Default">
+        <name>$constraint</name>
+        <default></default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag line="9" name="var" description="" type="\CreditCardValidator\Validator\Constraint\CreditCardNumberConstraint">
+            <type by_reference="false">\CreditCardValidator\Validator\Constraint\CreditCardNumberConstraint</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="15" namespace="CreditCardValidator\Tests\Constraint" package="Default">
+        <name>$fakeCardNumbers</name>
+        <default>array('visa' =&gt; '4716287116998188', 'mastercard' =&gt; '5219336953411844', 'amex' =&gt; '341118576609208', 'discover' =&gt; '6011429153186759')</default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="22" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="26" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="30" package="Default">
+        <name>testCanSetAndGetCardTypes</name>
+        <full_name>testCanSetAndGetCardTypes</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="36" package="Default">
+        <name>testSetCardTypesInConstructor</name>
+        <full_name>testSetCardTypesInConstructor</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="42" package="Default">
+        <name>testCannotSetUndefinedCardTypes</name>
+        <full_name>testCannotSetUndefinedCardTypes</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="48" package="Default">
+        <name>testInvalidNumberShouldReturnArrayOfErrors</name>
+        <full_name>testInvalidNumberShouldReturnArrayOfErrors</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="55" package="Default">
+        <name>testValidCardsShouldNotReturnErrors</name>
+        <full_name>testValidCardsShouldNotReturnErrors</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="63" package="Default">
+        <name>testAnyCardTypeShouldValidateWhenUsing_Any_Option</name>
+        <full_name>testAnyCardTypeShouldValidateWhenUsing_Any_Option</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="71" package="Default">
+        <name>testWrongCardTypeShouldReturnError</name>
+        <full_name>testWrongCardTypeShouldReturnError</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="78" package="Default">
+        <name>testShouldValidateAgainstMultipleCardTypes</name>
+        <full_name>testShouldValidateAgainstMultipleCardTypes</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Constraint" line="89" package="Default">
+        <name>testShouldValidateNonNormalizedNumber</name>
+        <full_name>testShouldValidateNonNormalizedNumber</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/Constraint/CreditCardNumberConstraintTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\Constraint\CreditCardNumberConstraintTest</error>
+      <critical line="9" code="50019">No short description for property $constraint</critical>
+      <error line="15" code="50018">No DocBlock was found for property $fakeCardNumbers</error>
+      <error line="22" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="26" code="50010">No DocBlock was found for method tearDown()</error>
+      <error line="30" code="50010">No DocBlock was found for method testCanSetAndGetCardTypes()</error>
+      <error line="36" code="50010">No DocBlock was found for method testSetCardTypesInConstructor()</error>
+      <error line="42" code="50010">No DocBlock was found for method testCannotSetUndefinedCardTypes()</error>
+      <error line="48" code="50010">No DocBlock was found for method testInvalidNumberShouldReturnArrayOfErrors()</error>
+      <error line="55" code="50010">No DocBlock was found for method testValidCardsShouldNotReturnErrors()</error>
+      <error line="63" code="50010">No DocBlock was found for method testAnyCardTypeShouldValidateWhenUsing_Any_Option()</error>
+      <error line="71" code="50010">No DocBlock was found for method testWrongCardTypeShouldReturnError()</error>
+      <error line="78" code="50010">No DocBlock was found for method testShouldValidateAgainstMultipleCardTypes()</error>
+      <error line="89" code="50010">No DocBlock was found for method testShouldValidateNonNormalizedNumber()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/Fixtures/Model/TestModel.php" hash="4dc3a7e08c5b03b3f07a2b3caffe3ce9" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\Fixtures\Model" line="7" package="Default">
+      <extends>\CreditCardValidator\Model\AbstractModel</extends>
+      <name>TestModel</name>
+      <full_name>\CreditCardValidator\Tests\Fixtures\Model\TestModel</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Fixtures\Model" line="8" package="Default">
+        <name>setFoo</name>
+        <full_name>setFoo</full_name>
+        <argument line="8">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Fixtures\Model" line="12" package="Default">
+        <name>getFoo</name>
+        <full_name>getFoo</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Fixtures\Model" line="16" package="Default">
+        <name>setSomeProperty</name>
+        <full_name>setSomeProperty</full_name>
+        <argument line="16">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Fixtures\Model" line="20" package="Default">
+        <name>getSomeProperty</name>
+        <full_name>getSomeProperty</full_name>
+        <argument line="20">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/Fixtures/Model/TestModel.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\Fixtures\Model\TestModel</error>
+      <error line="8" code="50010">No DocBlock was found for method setFoo()</error>
+      <error line="12" code="50010">No DocBlock was found for method getFoo()</error>
+      <error line="16" code="50010">No DocBlock was found for method setSomeProperty()</error>
+      <error line="20" code="50010">No DocBlock was found for method getSomeProperty()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/Functional/CreditCardValidatorTest.php" hash="8fa648fabceec605351424a68841e4a5" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\Functional" line="10" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>CreditCardValidatorTest</name>
+      <full_name>\CreditCardValidator\Tests\Functional\CreditCardValidatorTest</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Functional" line="14" package="Default">
+        <name>testShouldRenderErrorsForInvalidCreditCard</name>
+        <full_name>testShouldRenderErrorsForInvalidCreditCard</full_name>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+          <tag line="11" name="dataProvider" description="invalidCreditCardProvider"/>
+        </docblock>
+        <argument line="14">
+          <name>$ccNumber</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Functional" line="32" package="Default">
+        <name>testShouldNotRenderErrorsForValidCreditCard</name>
+        <full_name>testShouldNotRenderErrorsForValidCreditCard</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag line="29" name="dataProvider" description="validCreditCardProvider"/>
+        </docblock>
+        <argument line="32">
+          <name>$cardNumbers</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Functional" line="50" package="Default">
+        <name>testShouldRenderErrorsForWrongCardType</name>
+        <full_name>testShouldRenderErrorsForWrongCardType</full_name>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+          <tag line="47" name="dataProvider" description="validCreditCardProvider"/>
+        </docblock>
+        <argument line="50">
+          <name>$cardNumbers</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Functional" line="73" package="Default">
+        <name>invalidCreditCardProvider</name>
+        <full_name>invalidCreditCardProvider</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Functional" line="81" package="Default">
+        <name>validCreditCardProvider</name>
+        <full_name>validCreditCardProvider</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/Functional/CreditCardValidatorTest.php</error>
+      <error line="10" code="50000">No DocBlock was found for \CreditCardValidator\Tests\Functional\CreditCardValidatorTest</error>
+      <error line="11" code="50012">No short description for method testShouldRenderErrorsForInvalidCreditCard()</error>
+      <error line="11" code="50015">Argument $ccNumber is missing from the Docblock of testShouldRenderErrorsForInvalidCreditCard()</error>
+      <error line="29" code="50012">No short description for method testShouldNotRenderErrorsForValidCreditCard()</error>
+      <error line="29" code="50015">Argument $cardNumbers is missing from the Docblock of testShouldNotRenderErrorsForValidCreditCard()</error>
+      <error line="47" code="50012">No short description for method testShouldRenderErrorsForWrongCardType()</error>
+      <error line="47" code="50015">Argument $cardNumbers is missing from the Docblock of testShouldRenderErrorsForWrongCardType()</error>
+      <error line="73" code="50010">No DocBlock was found for method invalidCreditCardProvider()</error>
+      <error line="81" code="50010">No DocBlock was found for method validCreditCardProvider()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/Model/CreditCardTest.php" hash="4c10a12469400974ce3fbf2060f9efda" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\Model" line="7" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>CreditCardTest</name>
+      <full_name>\CreditCardValidator\Tests\Model\CreditCardTest</full_name>
+      <property final="false" static="false" visibility="private" line="8" namespace="CreditCardValidator\Tests\Model" package="Default">
+        <name>$card</name>
+        <default></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="10" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="14" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="18" package="Default">
+        <name>testCanSetAndGetNumber</name>
+        <full_name>testCanSetAndGetNumber</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="24" package="Default">
+        <name>testCanGetNormalizedCreditCardNumberAsString</name>
+        <full_name>testCanGetNormalizedCreditCardNumberAsString</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/Model/CreditCardTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\Model\CreditCardTest</error>
+      <error line="8" code="50018">No DocBlock was found for property $card</error>
+      <error line="10" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="14" code="50010">No DocBlock was found for method tearDown()</error>
+      <error line="18" code="50010">No DocBlock was found for method testCanSetAndGetNumber()</error>
+      <error line="24" code="50010">No DocBlock was found for method testCanGetNormalizedCreditCardNumberAsString()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/Model/ModelTest.php" hash="bc874f7a1b59e1551d89a8b2c5c33a1a" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\Model" line="7" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>ModelTest</name>
+      <full_name>\CreditCardValidator\Tests\Model\ModelTest</full_name>
+      <property final="false" static="false" visibility="private" line="9" namespace="CreditCardValidator\Tests\Model" package="Default">
+        <name>$model</name>
+        <default></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="11" namespace="CreditCardValidator\Tests\Model" package="Default">
+        <name>$card</name>
+        <default></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="13" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="17" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="CreditCardValidator\Tests\Model" line="21" package="Default">
+        <name>getDummyConstraint</name>
+        <full_name>getDummyConstraint</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="25" package="Default">
+        <name>testCanGetModelAttributesByName</name>
+        <full_name>testCanGetModelAttributesByName</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="30" package="Default">
+        <name>testCannotGetUndefinedAttributesByName</name>
+        <full_name>testCannotGetUndefinedAttributesByName</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="35" package="Default">
+        <name>testModelAttributesRetrievedByNameAreReadOnly</name>
+        <full_name>testModelAttributesRetrievedByNameAreReadOnly</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="44" package="Default">
+        <name>testCanSetAndGetPropertyConstraints</name>
+        <full_name>testCanSetAndGetPropertyConstraints</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="55" package="Default">
+        <name>testCanSetAndGetMultipleConstraintsOnASingleProperty</name>
+        <full_name>testCanSetAndGetMultipleConstraintsOnASingleProperty</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="68" package="Default">
+        <name>testCanSetAndGetMultipleConstraintsOnMultipleProperties</name>
+        <full_name>testCanSetAndGetMultipleConstraintsOnMultipleProperties</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="89" package="Default">
+        <name>testCannotSetConstraintForNonProperty</name>
+        <full_name>testCannotSetConstraintForNonProperty</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\Model" line="94" package="Default">
+        <name>testCannotSetNonConstraint</name>
+        <full_name>testCannotSetNonConstraint</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/Model/ModelTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\Model\ModelTest</error>
+      <error line="9" code="50018">No DocBlock was found for property $model</error>
+      <error line="11" code="50018">No DocBlock was found for property $card</error>
+      <error line="13" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="17" code="50010">No DocBlock was found for method tearDown()</error>
+      <error line="21" code="50010">No DocBlock was found for method getDummyConstraint()</error>
+      <error line="25" code="50010">No DocBlock was found for method testCanGetModelAttributesByName()</error>
+      <error line="30" code="50010">No DocBlock was found for method testCannotGetUndefinedAttributesByName()</error>
+      <error line="35" code="50010">No DocBlock was found for method testModelAttributesRetrievedByNameAreReadOnly()</error>
+      <error line="44" code="50010">No DocBlock was found for method testCanSetAndGetPropertyConstraints()</error>
+      <error line="55" code="50010">No DocBlock was found for method testCanSetAndGetMultipleConstraintsOnASingleProperty()</error>
+      <error line="68" code="50010">No DocBlock was found for method testCanSetAndGetMultipleConstraintsOnMultipleProperties()</error>
+      <error line="89" code="50010">No DocBlock was found for method testCannotSetConstraintForNonProperty()</error>
+      <error line="94" code="50010">No DocBlock was found for method testCannotSetNonConstraint()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/ValidationError/CreditCardValidationErrorTest.php" hash="f68148a188b2958c60da49036bdf5f2f" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests\ValidationError" line="7" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>CreditCardValidationErrorTest</name>
+      <full_name>\CreditCardValidator\Tests\ValidationError\CreditCardValidationErrorTest</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\ValidationError" line="8" package="Default">
+        <name>testCanSetAndGetCardType</name>
+        <full_name>testCanSetAndGetCardType</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\ValidationError" line="15" package="Default">
+        <name>testCanSetCardTypeOnConstruction</name>
+        <full_name>testCanSetCardTypeOnConstruction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\ValidationError" line="21" package="Default">
+        <name>testShouldNotRenderWithoutDefinedCardType</name>
+        <full_name>testShouldNotRenderWithoutDefinedCardType</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests\ValidationError" line="28" package="Default">
+        <name>testShouldRenderErrorMsg</name>
+        <full_name>testShouldRenderErrorMsg</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/ValidationError/CreditCardValidationErrorTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\ValidationError\CreditCardValidationErrorTest</error>
+      <error line="8" code="50010">No DocBlock was found for method testCanSetAndGetCardType()</error>
+      <error line="15" code="50010">No DocBlock was found for method testCanSetCardTypeOnConstruction()</error>
+      <error line="21" code="50010">No DocBlock was found for method testShouldNotRenderWithoutDefinedCardType()</error>
+      <error line="28" code="50010">No DocBlock was found for method testShouldRenderErrorMsg()</error>
+    </parse_markers>
+  </file>
+  <file path="Tests/ValidatorTest.php" hash="c13deb9c885ec600f80ae1c2161ffb57" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Tests" line="7" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>ValidatorTest</name>
+      <full_name>\CreditCardValidator\Tests\ValidatorTest</full_name>
+      <property final="false" static="false" visibility="private" line="12" namespace="CreditCardValidator\Tests" package="Default">
+        <name>$validator</name>
+        <default></default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+          <tag line="9" name="var" description="" type="\CreditCardValidator\Validator\Validator">
+            <type by_reference="false">\CreditCardValidator\Validator\Validator</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="14" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="18" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="22" package="Default">
+        <name>testShouldReturnErrorsWithInvalidModel</name>
+        <full_name>testShouldReturnErrorsWithInvalidModel</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="29" package="Default">
+        <name>testShouldReturnNoErrorsWithValidModel</name>
+        <full_name>testShouldReturnNoErrorsWithValidModel</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="36" package="Default">
+        <name>testShouldReturnTheCorrectNumberOfErrors</name>
+        <full_name>testShouldReturnTheCorrectNumberOfErrors</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="CreditCardValidator\Tests" line="48" package="Default">
+        <name>getMockConstrainedModel</name>
+        <full_name>getMockConstrainedModel</full_name>
+        <argument line="48">
+          <name>$isValid</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$errorCount</name>
+          <default>1</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="CreditCardValidator\Tests" line="64" package="Default">
+        <name>getMockPropertyConstraints</name>
+        <full_name>getMockPropertyConstraints</full_name>
+        <argument line="64">
+          <name>$isValid</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="CreditCardValidator\Tests" line="77" package="Default">
+        <name>getMockConstraint</name>
+        <full_name>getMockConstraint</full_name>
+        <argument line="77">
+          <name>$isValid</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Tests" line="92" package="Default">
+        <name>getMockValidationError</name>
+        <full_name>getMockValidationError</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Tests/ValidatorTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \CreditCardValidator\Tests\ValidatorTest</error>
+      <critical line="9" code="50019">No short description for property $validator</critical>
+      <error line="14" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="18" code="50010">No DocBlock was found for method tearDown()</error>
+      <error line="22" code="50010">No DocBlock was found for method testShouldReturnErrorsWithInvalidModel()</error>
+      <error line="29" code="50010">No DocBlock was found for method testShouldReturnNoErrorsWithValidModel()</error>
+      <error line="36" code="50010">No DocBlock was found for method testShouldReturnTheCorrectNumberOfErrors()</error>
+      <error line="48" code="50010">No DocBlock was found for method getMockConstrainedModel()</error>
+      <error line="64" code="50010">No DocBlock was found for method getMockPropertyConstraints()</error>
+      <error line="77" code="50010">No DocBlock was found for method getMockConstraint()</error>
+      <error line="92" code="50010">No DocBlock was found for method getMockValidationError()</error>
+    </parse_markers>
+  </file>
+  <file path="Validator/Constraint/ConstraintInterface.php" hash="c09201be43394ff015eb10531267692f" package="Default">
+    <interface namespace="CreditCardValidator\Validator\Constraint" line="15" package="CreditCardValidator\Validator\Constraint">
+      <name>ConstraintInterface</name>
+      <full_name>\CreditCardValidator\Validator\Constraint\ConstraintInterface</full_name>
+      <docblock line="7">
+        <description>A constraint can be bound to a model property
+Validating the constraint shoudl return a list
+of ValidationErrors</description>
+        <long-description>&lt;p&gt;Class ConstraintInterface&lt;/p&gt;</long-description>
+        <tag line="7" name="package" description="CreditCardValidator\Validator\Constraint"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="22" package="CreditCardValidator\Validator\Constraint">
+        <name>validate</name>
+        <full_name>validate</full_name>
+        <docblock line="16">
+          <description>Validates the value</description>
+          <long-description></long-description>
+          <tag line="16" name="param" description="Value to validate" type="\CreditCardValidator\Validator\Constraint\(optional)" variable="$value">
+            <type by_reference="false">\CreditCardValidator\Validator\Constraint\(optional)</type>
+          </tag>
+          <tag line="16" name="return" description="List of errors as ValidationErrorInterface objects" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="22">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Validator/Constraint/ConstraintInterface.php</error>
+    </parse_markers>
+  </file>
+  <file path="Validator/Constraint/CreditCardNumberConstraint.php" hash="ab224c4a306f9a95024689bd7c1a062f" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Validator\Constraint" line="15" package="CreditCardValidator\Validator\Constraint">
+      <extends/>
+      <implements>\CreditCardValidator\Validator\Constraint\ConstraintInterface</implements>
+      <name>CreditCardNumberConstraint</name>
+      <full_name>\CreditCardValidator\Validator\Constraint\CreditCardNumberConstraint</full_name>
+      <docblock line="8">
+        <description>Validates that a credit card number
+matches standard patterns.</description>
+        <long-description>&lt;p&gt;Class CreditCardNumberConstraint&lt;/p&gt;</long-description>
+        <tag line="8" name="package" description="CreditCardValidator\Validator\Constraint"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="20" namespace="CreditCardValidator\Validator\Constraint" package="Default">
+        <name>$cardTypes</name>
+        <default>array()</default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag line="17" name="var" description="Card types to test against" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="28" namespace="CreditCardValidator\Validator\Constraint" package="Default">
+        <name>$cardNumberPatterns</name>
+        <default>array('visa' =&gt; '/^4[0-9]{12}(?:[0-9]{3})?$/', 'mastercard' =&gt; '/^5[1-5][0-9]{14}$/', 'amex' =&gt; '/^3[47][0-9]{13}$/', 'discover' =&gt; '/^6(?:011|5[0-9]{2})[0-9]{12}$/', 'any' =&gt; '/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/')</default>
+        <docblock line="22">
+          <description>Regular expressions for matching credit card numbers
+Shamelessly stolen from http://www.regular-expressions.info/creditcard.html</description>
+          <long-description></long-description>
+          <tag line="22" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="36" package="CreditCardValidator\Validator\Constraint">
+        <name>checkDefinedCardTypes</name>
+        <full_name>checkDefinedCardTypes</full_name>
+        <argument line="36">
+          <name>$cardTypes</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="45" package="CreditCardValidator\Validator\Constraint">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <argument line="45">
+          <name>$cardTypes</name>
+          <default>array('any')</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="53" package="CreditCardValidator\Validator\Constraint">
+        <name>setCardTypes</name>
+        <full_name>setCardTypes</full_name>
+        <docblock line="50">
+          <description></description>
+          <long-description></long-description>
+          <tag line="50" name="param" description="Card types to test against" type="array" variable="$cardTypes">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="53">
+          <name>$cardTypes</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="61" package="CreditCardValidator\Validator\Constraint">
+        <name>getCardTypes</name>
+        <full_name>getCardTypes</full_name>
+        <docblock line="58">
+          <description></description>
+          <long-description></long-description>
+          <tag line="58" name="return" description="Card types to test against" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\Constraint" line="72" package="CreditCardValidator\Validator\Constraint">
+        <name>validate</name>
+        <full_name>validate</full_name>
+        <docblock line="65">
+          <description>Validate a credit card number</description>
+          <long-description></long-description>
+          <tag line="65" name="param" description="Credit card number to validate" type="\CreditCardValidator\Validator\Constraint\" variable="$number"/>
+          <tag line="65" name="return" description="Array of CreditCardValidationError objects" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="65" name="throws" description="If card type does not have defined pattern." type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$number</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Validator/Constraint/CreditCardNumberConstraint.php</error>
+      <error line="36" code="50010">No DocBlock was found for method checkDefinedCardTypes()</error>
+      <error line="45" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="50" code="50012">No short description for method setCardTypes()</error>
+      <error line="58" code="50012">No short description for method getCardTypes()</error>
+    </parse_markers>
+  </file>
+  <file path="Validator/ValidationError/CreditCardValidationError.php" hash="036a2e315b29fcfc2dee03b7f92e3750" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Validator\ValidationError" line="11" package="CreditCardValidator\Validator\ValidationError">
+      <extends/>
+      <implements>\CreditCardValidator\Validator\ValidationError\ValidationErrorInterface</implements>
+      <name>CreditCardValidationError</name>
+      <full_name>\CreditCardValidator\Validator\ValidationError\CreditCardValidationError</full_name>
+      <docblock line="7">
+        <description>Class CreditCardValidationError</description>
+        <long-description></long-description>
+        <tag line="7" name="package" description="CreditCardValidator\Validator\ValidationError"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="16" namespace="CreditCardValidator\Validator\ValidationError" package="Default">
+        <name>$cardType</name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag line="13" name="var" description="Type of card (eg. visa, mastercard, amex)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\ValidationError" line="21" package="CreditCardValidator\Validator\ValidationError">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+          <tag line="18" name="param" description="" type="null" variable="$cardType">
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="21">
+          <name>$cardType</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\ValidationError" line="28" package="CreditCardValidator\Validator\ValidationError">
+        <name>setCardType</name>
+        <full_name>setCardType</full_name>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+          <tag line="25" name="param" description="Card Type (eg. visa, mastercard, amex)" type="string" variable="$cardType">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="28">
+          <name>$cardType</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\ValidationError" line="35" package="CreditCardValidator\Validator\ValidationError">
+        <name>getCardType</name>
+        <full_name>getCardType</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag line="32" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\ValidationError" line="39" package="CreditCardValidator\Validator\ValidationError">
+        <name>renderErrorMsg</name>
+        <full_name>renderErrorMsg</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Validator/ValidationError/CreditCardValidationError.php</error>
+      <error line="18" code="50012">No short description for method __construct()</error>
+      <error line="25" code="50012">No short description for method setCardType()</error>
+      <error line="32" code="50012">No short description for method getCardType()</error>
+      <error line="39" code="50010">No DocBlock was found for method renderErrorMsg()</error>
+    </parse_markers>
+  </file>
+  <file path="Validator/ValidationError/ValidationErrorInterface.php" hash="8d769092f8d9ce85831ddb36c5507184" package="Default">
+    <interface namespace="CreditCardValidator\Validator\ValidationError" line="12" package="CreditCardValidator\Validator\ValidationError">
+      <name>ValidationErrorInterface</name>
+      <full_name>\CreditCardValidator\Validator\ValidationError\ValidationErrorInterface</full_name>
+      <docblock line="4">
+        <description>Validation errors are generated
+when running validation on a constraint
+against a model.</description>
+        <long-description>&lt;p&gt;Class ValidationErrorInterface&lt;/p&gt;</long-description>
+        <tag line="4" name="package" description="CreditCardValidator\Validator\ValidationError"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator\ValidationError" line="16" package="CreditCardValidator\Validator\ValidationError">
+        <name>renderErrorMsg</name>
+        <full_name>renderErrorMsg</full_name>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag line="13" name="return" description="Error message" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Validator/ValidationError/ValidationErrorInterface.php</error>
+      <error line="13" code="50012">No short description for method renderErrorMsg()</error>
+    </parse_markers>
+  </file>
+  <file path="Validator/Validator.php" hash="e35bf08b65f6ce9888b8c171065794cf" package="Default">
+    <class final="false" abstract="false" namespace="CreditCardValidator\Validator" line="12" package="CreditCardValidator\Validator">
+      <extends/>
+      <name>Validator</name>
+      <full_name>\CreditCardValidator\Validator\Validator</full_name>
+      <docblock line="7">
+        <description>Class Validator</description>
+        <long-description></long-description>
+        <tag line="7" name="package" description="CreditCardValidator\Validator"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="17" namespace="CreditCardValidator\Validator" package="Default">
+        <name>$errors</name>
+        <default>array()</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+          <tag line="14" name="var" description="List of validation errors generated during validation" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="22" namespace="CreditCardValidator\Validator" package="Default">
+        <name>$model</name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+          <tag line="19" name="var" description="" type="\CreditCardValidator\Model\AbstractModel">
+            <type by_reference="false">\CreditCardValidator\Model\AbstractModel</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="CreditCardValidator\Validator" line="24" package="CreditCardValidator\Validator">
+        <name>setModel</name>
+        <full_name>setModel</full_name>
+        <argument line="24">
+          <name>$model</name>
+          <default></default>
+          <type>\CreditCardValidator\Model\AbstractModel</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator" line="28" package="CreditCardValidator\Validator">
+        <name>getModel</name>
+        <full_name>getModel</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator" line="32" package="CreditCardValidator\Validator">
+        <name>getErrors</name>
+        <full_name>getErrors</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CreditCardValidator\Validator" line="44" package="CreditCardValidator\Validator">
+        <name>validate</name>
+        <full_name>validate</full_name>
+        <docblock line="36">
+          <description>Runs through all bound constraints
+on model properties, validates,
+and returns a single list of validation errors</description>
+          <long-description></long-description>
+          <tag line="36" name="param" description="The model to validate" type="\CreditCardValidator\Model\AbstractModel" variable="$model">
+            <type by_reference="false">\CreditCardValidator\Model\AbstractModel</type>
+          </tag>
+          <tag line="36" name="return" description="A list of validation errors" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="44">
+          <name>$model</name>
+          <default></default>
+          <type>\CreditCardValidator\Model\AbstractModel</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Validator/Validator.php</error>
+      <critical line="19" code="50019">No short description for property $model</critical>
+      <error line="24" code="50010">No DocBlock was found for method setModel()</error>
+      <error line="28" code="50010">No DocBlock was found for method getModel()</error>
+      <error line="32" code="50010">No DocBlock was found for method getErrors()</error>
+    </parse_markers>
+  </file>
+  <package name="CreditCardValidator" full_name="CreditCardValidator">
+    <package name="Model" full_name="CreditCardValidator\Model"/>
+    <package name="Validator" full_name="CreditCardValidator\Validator">
+      <package name="Constraint" full_name="CreditCardValidator\Validator\Constraint"/>
+      <package name="ValidationError" full_name="CreditCardValidator\Validator\ValidationError"/>
+    </package>
+  </package>
+  <package name="Default" full_name="Default"/>
+  <namespace name="CreditCardValidator" full_name="CreditCardValidator">
+    <namespace name="Model" full_name="CreditCardValidator\Model"/>
+    <namespace name="Tests" full_name="CreditCardValidator\Tests">
+      <namespace name="Constraint" full_name="CreditCardValidator\Tests\Constraint"/>
+      <namespace name="Fixtures" full_name="CreditCardValidator\Tests\Fixtures">
+        <namespace name="Model" full_name="CreditCardValidator\Tests\Fixtures\Model"/>
+      </namespace>
+      <namespace name="Functional" full_name="CreditCardValidator\Tests\Functional"/>
+      <namespace name="Model" full_name="CreditCardValidator\Tests\Model"/>
+      <namespace name="ValidationError" full_name="CreditCardValidator\Tests\ValidationError"/>
+    </namespace>
+    <namespace name="Validator" full_name="CreditCardValidator\Validator">
+      <namespace name="Constraint" full_name="CreditCardValidator\Validator\Constraint"/>
+      <namespace name="ValidationError" full_name="CreditCardValidator\Validator\ValidationError"/>
+    </namespace>
+  </namespace>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
