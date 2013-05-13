@@ -5,9 +5,9 @@ Validates Visa, MasterCard, and American Express credit card numbers.
 
 ## Installation
 
-## Composer
+### Using Composer
 
-This project using composer to generate a PSR-0 autoloader. Download and install composer at getcomposer.php into the project root directory, then run:
+This project uses composer to generate a PSR-0 autoloader. [Download and install](http://getcomposer.org) composer into the project root directory, then run:
 
 ```
 sudo ./composer.phar install
@@ -16,6 +16,7 @@ sudo ./composer.phar install
 
 ## Usage
 
+```
 $card = new CreditCard(array(
 	'number' => "1234-abcd-sd&*(",
 	'expDate' => "2012-04-03"
@@ -28,22 +29,20 @@ $errors = $validate($card);
 $this->assertGreaterThan(0, count($errors));
 $this->assertInstanceOf(CreditCardNumberValidationError, $errors[0])
 
+$errors[0]->renderErrorMsg();     // Returns a clever error message
+```
 
-## TODO:
-* How to catch Fatal errors in testing scripts?
+## Extending
 
-* Document unit tests
-* Write functional test
-* Install composer PSR-0 auto-loader
-* Install php-unit
-* TDD it
-* Clean up UML for presentation
+The validation component included in this package was made to be easily extended. For example, to validate credit card dates, you could
 
-## BONUS:
-* Generate documentation (PHPDoc)
+* Create a `CreditCardDateConstraint` class, which implements the `ConstraintInterface`
+* Set a `validate` method on the constraint, which accepts a date, and returns an array of `ViolationErrorInterface` objects if the date is earlier that today.
 
+You could also create new models extending the `AbstractModel` class, and validate with the same components.
 
-## Tests to remember
+## Testing
 
-- Multiple constraints on a property
-- Multiple properties with constraints
+This component is unit- and functional-tested using PHPUnit. All test currently pass, running PHP 5.4.10. 
+
+Please unit test your pull requests before submitting.
