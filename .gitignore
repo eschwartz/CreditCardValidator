@@ -4,6 +4,7 @@
 *.DS_Store
 *.swp
 *.out
+*.export.*
 .buildpath
 .metadata/
 .project
