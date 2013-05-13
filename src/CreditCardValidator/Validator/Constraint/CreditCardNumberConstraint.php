@@ -1,6 +1,7 @@
 <?php
 namespace CreditCardValidator\Validator\Constraint;
 
+use CreditCardValidator\Model\CreditCard;
 use CreditCardValidator\Validator\Constraint\ConstraintInterface;
 use CreditCardValidator\Validator\ValidationError\CreditCardValidationError;
 
@@ -65,10 +66,13 @@ class CreditCardNumberConstraint implements ConstraintInterface {
     $valid = false;
     $errors = array();
 
+    // Normalize number (strip slashes/dashes/etc)
+    $normalizedNumber = CreditCard::getNumberAsNormalizedString($number);
+
     foreach($this->cardTypes as $type) {
       // Match card number against pattern
       $pattern = $this->cardNumberPatterns[$type];
-      if(preg_match($pattern, $number)) {
+      if(preg_match($pattern, $normalizedNumber)) {
         $valid = true;
       }
       else {

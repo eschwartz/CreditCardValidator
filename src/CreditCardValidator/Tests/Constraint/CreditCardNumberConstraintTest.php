@@ -6,6 +6,9 @@ use CreditCardValidator\Validator\Constraint\CreditCardNumberConstraint;
 
 class CreditCardNumberConstraintTest extends \PHPUnit_Framework_TestCase {
 
+  /**
+   * @var CreditCardNumberConstraint
+   */
   private $constraint;
 
   // From http://www.darkcoding.net/credit-card-numbers/
@@ -81,5 +84,10 @@ class CreditCardNumberConstraintTest extends \PHPUnit_Framework_TestCase {
 
     $this->constraint->setCardTypes(array('visa', 'amex'));
     $this->assertEquals(2, count($this->constraint->validate($this->fakeCardNumbers['mastercard'])));
+  }
+
+  public function testShouldValidateNonNormalizedNumber() {
+    $errors = $this->constraint->validate("4716-2871 1699/81.88");
+    $this->assertEquals(0, count($errors));
   }
 }
