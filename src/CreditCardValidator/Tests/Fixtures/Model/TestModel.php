@@ -1,6 +1,6 @@
 <?php
 
-namespace CreditCardValidator\Tests\Fixtures;
+namespace CreditCardValidator\Tests\Fixtures\Model;
 
 use CreditCardValidator\Model\AbstractModel;
 

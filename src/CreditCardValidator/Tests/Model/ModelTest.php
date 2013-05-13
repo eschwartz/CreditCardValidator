@@ -2,7 +2,7 @@
 
 namespace CreditCardValidator\Tests\Model;
 
-use CreditCardValidator\Tests\Fixtures\TestModel as Model;
+use CreditCardValidator\Tests\Fixtures\Model\TestModel as Model;
 
 class ModelTest extends \PHPUnit_Framework_TestCase {
 
