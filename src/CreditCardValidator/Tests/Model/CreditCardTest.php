@@ -21,10 +21,10 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals("12345", $this->card->getNumber());
   }
 
-  public function testCanGetNormalizedCreditCardNumberAsFloat() {
+  public function testCanGetNormalizedCreditCardNumberAsString() {
     $this->card->setNumber("1234-5678 90abcd gef hij12.34\\56//7890");
-    $normalized = $this->card->getNumberNormalized();
+    $normalized = $this->card->getNumberAsNormalizedString();
     $this->assertEquals("12345678901234567890", $normalized);
-    $this->assertInternalType("float", $normalized);
+    $this->assertInternalType("string", $normalized);
   }
 }

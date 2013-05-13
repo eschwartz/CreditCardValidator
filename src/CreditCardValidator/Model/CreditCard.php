@@ -20,7 +20,7 @@ class CreditCard extends AbstractModel {
    *
    * @return float      Card number
    */
-  public function getNumberNormalized() {
-    return (float) preg_replace("/[^0-9]/", "", $this->getNumber());
+  public function getNumberAsNormalizedString() {
+    return (string) preg_replace("/[^0-9]/", "", $this->getNumber());
   }
 }
