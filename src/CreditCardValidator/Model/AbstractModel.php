@@ -11,15 +11,26 @@ abstract class AbstractModel {
   protected $constraints = array();
 
   /**
+   * Read-only access to model attributes
+   *
+   * @param $attr
+   * @return mixed
+   */
+  public function getAttribute($attr) {
+    $this->checkPropertyExists($attr);
+    return $this->attributes[$attr];
+  }
+
+  /**
    * Checks that the property is an attribute of the model
    * Or throws an exception
    *
    * @param $property
-   * @throws \InvalidArgumentException
+   * @throws \InvalidArgumentException      If property does not exist
    */
   protected function checkPropertyExists($property) {
     if(!array_key_exists($property, $this->attributes)) {
-      throw new \InvalidArgumentException("Unable to set property constraint. Property '$property' does not exist.");
+      throw new \InvalidArgumentException("Unable to access property constraint. Property '$property' does not exist.");
     }
   }
 

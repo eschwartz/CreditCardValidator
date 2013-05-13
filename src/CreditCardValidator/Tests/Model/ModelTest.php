@@ -22,6 +22,25 @@ class ModelTest extends \PHPUnit_Framework_TestCase {
     return $this->getMock("CreditCardValidator\\Validator\\Constraint\\ConstraintInterface");
   }
 
+  public function testCanGetModelAttributesByName() {
+    $this->model->setFoo('bar');
+    $this->assertEquals('bar', $this->model->getAttribute('foo'));
+  }
+
+  public function testCannotGetUndefinedAttributesByName() {
+    $this->setExpectedException("InvalidArgumentException");
+    $this->model->getAttribute("foo");
+  }
+
+  public function testModelAttributesRetrievedByNameAreReadOnly() {
+    $this->model->setFoo('bar');
+    $foo = $this->model->getAttribute('foo');
+
+    // Make sure we are getting a value, and not a reference
+    $foo = "pub";
+    $this->assertEquals("bar", $this->model->getFoo());
+  }
+
   public function testCanSetAndGetPropertyConstraints() {
     $this->model->setFoo('bar');
 
