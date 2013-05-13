@@ -46,6 +46,27 @@ class ModelTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals(2, count($propertyConstraints));
   }
 
+  public function testCanSetAndGetMultipleConstraintsOnMultipleProperties() {
+    $this->model->setFoo('bar');
+    $this->model->setSomeProperty('someValue');
+
+    $dummyConstraintA = $this->getDummyConstraint();
+    $dummyConstraintB = $this->getDummyConstraint();
+
+    $this->model->setPropertyConstraint('foo', $dummyConstraintA);
+    $this->model->setPropertyConstraint('foo', $dummyConstraintB);
+    $this->model->setPropertyConstraint('someProperty', $dummyConstraintA);
+    $this->model->setPropertyConstraint('someProperty', $dummyConstraintB);
+
+    $allConstraints = $this->model->getConstraints();
+
+    $this->assertInternalType("array", $allConstraints['foo']);
+    $this->assertInternalType("array", $allConstraints['someProperty']);
+
+    $this->assertEquals(2, count($allConstraints['foo']));
+    $this->assertEquals(2, count($allConstraints['someProperty']));
+  }
+
   public function testCannotSetConstraintForNonProperty() {
     $this->setExpectedException("InvalidArgumentException");
     $this->model->setPropertyConstraint('somePropertyOfWhichWeDoubtTheExistence', $this->getDummyConstraint());

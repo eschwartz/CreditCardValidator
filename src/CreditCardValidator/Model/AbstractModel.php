@@ -54,4 +54,11 @@ abstract class AbstractModel {
 
     return isset($this->constraints[$property])? $this->constraints[$property]: array();
   }
+
+  /**
+   * @return array    All property constraints for this model
+   */
+  public function getConstraints() {
+    return $this->constraints;
+  }
 }
